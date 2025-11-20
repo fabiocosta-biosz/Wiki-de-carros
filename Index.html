@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wiki de Carros</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      background: #1c1c1c;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .tabs {
+      display: flex;
+      background: #222;
+      overflow-x: auto;
+    }
+    .tab {
+      padding: 14px 20px;
+      cursor: pointer;
+      flex-shrink: 0;
+      background: #222;
+      border-bottom: 3px solid transparent;
+      transition: 0.3s;
+    }
+    .tab.active {
+      border-bottom: 3px solid #4CAF50;
+      background: #1b1b1b;
+    }
+    .content {
+      padding: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    .car-card {
+      background: #1c1c1c;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #333;
+    }
+    .car-card h3 {
+      margin: 0 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>Wiki de Carros</header>  <div class="tabs">
+    <div class="tab active" data-target="peugeot">Peugeot</div>
+    <div class="tab" data-target="vw">Volkswagen</div>
+    <div class="tab" data-target="fiat">Fiat</div>
+  </div>  <div class="content">
+    <div id="peugeot" class="tab-content">
+      <h2>Peugeot</h2><div class="car-card">
+    <h3>Peugeot 206</h3>
+    <p><b>Ano:</b> 1998–2014</p>
+    <p><b>Características:</b> compacto, leve, bom para projetos de pista ou rally.</p>
+  </div>
+
+  <div class="car-card">
+    <h3>Peugeot 208</h3>
+    <p><b>Ano:</b> 2012–Atual</p>
+    <p><b>Características:</b> moderno, econômico, interior avançado.</p>
+  </div>
+</div>
+
+<div id="vw" class="tab-content hidden">
+  <h2>Volkswagen</h2>
+  <div class="car-card">
+    <h3>Gol G4</h3>
+    <p><b>Ano:</b> 2005–2012</p>
+    <p><b>Características:</b> barato, simples, fácil de modificar.</p>
+  </div>
+</div>
+
+<div id="fiat" class="tab-content hidden">
+  <h2>Fiat</h2>
+  <div class="car-card">
+    <h3>Fiat Uno</h3>
+    <p><b>Ano:</b> 1984–2021</p>
+    <p><b>Características:</b> leve, resistente, perfeito para projetos baratos.</p>
+  </div>
+</div>
+
+  </div>  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        contents.forEach(c => c.classList.add('hidden'));
+        document.getElementById(tab.dataset.target).classList.remove('hidden');
+      });
+    });
+  </script></body>
+</html>
